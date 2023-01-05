@@ -2,6 +2,7 @@ let sketchPad = document.querySelector(".sketchPad");
 let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
 let penColor = "black";
+let originalPenColor = "black";
 let sketchPadColor = "pink";
 let userColorInput = document.querySelector("#color");
 let hexValue = document.querySelector("#hex");
@@ -13,19 +14,36 @@ initializeSketchPad(sliderValue);
 
 userColorInput.addEventListener("input", () => {
     penColor = userColorInput.value;
+    originalPenColor = userColorInput.value;
 })
 
 document.getElementById("reset").onclick = resetSketchPad;
 
+
+function toggleDrawingItem(item) {
+    switch (item) {
+        case "pen":
+            penColor = originalPenColor;
+            console.log(penColor);
+            break;
+        case "eraser":
+            console.log(penColor);
+            penColor = sketchPadColor;
+            console.log(penColor);
+            break;  
+        default:
+            // do nothing        
+    }
+}
+
+
 function resetSketchPad () {
     let allSquares = sketchPad.querySelectorAll("div");
-    allSquares.forEach((div) => div.style.backgroundColor = "pink");
+    allSquares.forEach((div) => div.style.backgroundColor = sketchPadColor);
 };
 
 slider.onchange = function() {
-    console.log("Hello world");
     sliderValue = document.getElementById("myRange").value;
-    console.log(sliderValue);
     initializeSketchPad(sliderValue);
     resetSketchPad();
   }
@@ -46,11 +64,8 @@ function initializeSketchPad (boardSize) {
 
 function colorSquare (e) {
     if (e.type === 'mouseover' && !mouseDown) {
-        console.log("you are hovering!")
         return
     }
-    console.log("you have clicked a square!")
-    console.log( e.target.style.backgroundColor);
     e.target.style.backgroundColor = penColor;
 }
 
