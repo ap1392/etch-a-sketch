@@ -1,14 +1,19 @@
 let sketchPad = document.querySelector(".sketchPad");
 let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
-console.log(sliderValue);
+let penColor = "black";
+let sketchPadColor = "pink";
+let userColorInput = document.querySelector("#color");
+let hexValue = document.querySelector("#hex");
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 initializeSketchPad(sliderValue);
 
-
+userColorInput.addEventListener("input", () => {
+    penColor = userColorInput.value;
+})
 
 document.getElementById("reset").onclick = resetSketchPad;
 
@@ -30,11 +35,11 @@ function initializeSketchPad (boardSize) {
     sketchPad.style.gridTemplateColumns = `repeat(${boardSize}, 1fr)`;
     sketchPad.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
     for (let i = 0; i < boardSize * boardSize; i++) {
-    let sketchPadSquare = document.createElement("div");
-    sketchPadSquare.style.backgroundColor = "pink";
-    sketchPadSquare.addEventListener("mousedown", colorSquare);
-    sketchPadSquare.addEventListener("mouseover", colorSquare);
-    sketchPad.appendChild(sketchPadSquare);
+        let sketchPadSquare = document.createElement("div");
+        sketchPadSquare.style.backgroundColor = "pink";
+        sketchPadSquare.addEventListener("mousedown", colorSquare);
+        sketchPadSquare.addEventListener("mouseover", colorSquare);
+        sketchPad.appendChild(sketchPadSquare);
     }
 }
 
@@ -46,7 +51,7 @@ function colorSquare (e) {
     }
     console.log("you have clicked a square!")
     console.log( e.target.style.backgroundColor);
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = penColor;
 }
 
 
