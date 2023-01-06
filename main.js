@@ -3,7 +3,7 @@ let slider = document.getElementById("myRange");
 let sliderValue = slider.value;
 let penColor = "black";
 let originalPenColor = "black";
-let sketchPadColor = "pink";
+let sketchPadColor = "white";
 let userColorInput = document.querySelector("#color");
 let hexValue = document.querySelector("#hex");
 let shouldGridExist = false;
@@ -40,9 +40,7 @@ function toggleDrawingItem(item) {
     }
 }
 
-function myFunction() {
-    console.log("Hello World");
-}
+
 
 
 function resetSketchPad () {
@@ -53,24 +51,31 @@ function resetSketchPad () {
 function addGridLines() {
     shouldGridExist = !shouldGridExist;
     let allSquares = sketchPad.querySelectorAll("div");
-    // if (shouldGridExist) {
-    //     console.log(allSquares);
-    //     allSquares.forEach((div) => {
-    //         div.style.border = "solid";
-    //     });
-    // } else {
-    //     console.log(allSquares);
-    //     allSquares.forEach((div) => {
-    //         div.style.border = "none";
-    //     });    
-    // }
+    if (shouldGridExist) {
+        allSquares.forEach((div) => {
+            div.style.borderStyle = "solid";
+            div.style.borderWidth = "thin";
+        });
+    } else {
+        allSquares.forEach((div) => {
+            div.style.border = "none";
+        });    
+    }
 }
 
 slider.onchange = function() {
     sliderValue = document.getElementById("myRange").value;
-    initializeSketchPad(sliderValue);
     document.getElementById("sketchPadSize").textContent = "Sketch pad size: " + sliderValue + " * " + sliderValue;
     resetSketchPad();
+    removeAllDivs();
+    initializeSketchPad(sliderValue);
+    addGridLines();
+    addGridLines();
+  }
+
+  function removeAllDivs() {
+    let allSquares = sketchPad.querySelectorAll("div");
+    allSquares.forEach((div) => div.remove());
   }
 
 
@@ -79,7 +84,7 @@ function initializeSketchPad (boardSize) {
     sketchPad.style.gridTemplateRows = `repeat(${boardSize}, 1fr)`;
     for (let i = 0; i < boardSize * boardSize; i++) {
         let sketchPadSquare = document.createElement("div");
-        sketchPadSquare.style.backgroundColor = "pink";
+        sketchPadSquare.style.backgroundColor = sketchPadColor;
         sketchPadSquare.addEventListener("mousedown", colorSquare);
         sketchPadSquare.addEventListener("mouseover", colorSquare);
         sketchPad.appendChild(sketchPadSquare);
