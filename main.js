@@ -53,17 +53,17 @@ function resetSketchPad () {
 function addGridLines() {
     shouldGridExist = !shouldGridExist;
     let allSquares = sketchPad.querySelectorAll("div");
-    if (shouldGridExist) {
-        console.log(allSquares);
-        allSquares.forEach((div) => {
-            div.style.border = "solid";
-        });
-    } else {
-        console.log(allSquares);
-        allSquares.forEach((div) => {
-            div.style.border = "none";
-        });    
-    }
+    // if (shouldGridExist) {
+    //     console.log(allSquares);
+    //     allSquares.forEach((div) => {
+    //         div.style.border = "solid";
+    //     });
+    // } else {
+    //     console.log(allSquares);
+    //     allSquares.forEach((div) => {
+    //         div.style.border = "none";
+    //     });    
+    // }
 }
 
 slider.onchange = function() {
