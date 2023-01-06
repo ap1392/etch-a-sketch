@@ -31,9 +31,16 @@ function toggleDrawingItem(item) {
             penColor = sketchPadColor;
             console.log(penColor);
             break;  
+        case "rainbow":
+            penColor = "rainbow"; 
+            console.log("rainbow");
         default:
             // do nothing        
     }
+}
+
+function myFunction() {
+    console.log("Hello World");
 }
 
 
@@ -41,6 +48,13 @@ function resetSketchPad () {
     let allSquares = sketchPad.querySelectorAll("div");
     allSquares.forEach((div) => div.style.backgroundColor = sketchPadColor);
 };
+
+function addGridLines() {
+    // let allSquares = sketchPad.querySelectorAll("div");
+    // allSquares.forEach((div) => {
+    //     div.style.border = "thick solid #0000FF";
+    // });
+}
 
 slider.onchange = function() {
     sliderValue = document.getElementById("myRange").value;
@@ -65,6 +79,11 @@ function initializeSketchPad (boardSize) {
 function colorSquare (e) {
     if (e.type === 'mouseover' && !mouseDown) {
         return
+    }
+    if (penColor == "rainbow") {
+        const randColor = Math.floor(Math.random()*16777215).toString(16);
+        console.log(randColor);
+        e.target.style.backgroundColor = "#" + randColor;
     }
     e.target.style.backgroundColor = penColor;
 }
