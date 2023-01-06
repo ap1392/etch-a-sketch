@@ -6,6 +6,7 @@ let originalPenColor = "black";
 let sketchPadColor = "pink";
 let userColorInput = document.querySelector("#color");
 let hexValue = document.querySelector("#hex");
+let shouldGridExist = false;
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
@@ -50,15 +51,25 @@ function resetSketchPad () {
 };
 
 function addGridLines() {
-    // let allSquares = sketchPad.querySelectorAll("div");
-    // allSquares.forEach((div) => {
-    //     div.style.border = "thick solid #0000FF";
-    // });
+    shouldGridExist = !shouldGridExist;
+    let allSquares = sketchPad.querySelectorAll("div");
+    if (shouldGridExist) {
+        console.log(allSquares);
+        allSquares.forEach((div) => {
+            div.style.border = "solid";
+        });
+    } else {
+        console.log(allSquares);
+        allSquares.forEach((div) => {
+            div.style.border = "none";
+        });    
+    }
 }
 
 slider.onchange = function() {
     sliderValue = document.getElementById("myRange").value;
     initializeSketchPad(sliderValue);
+    document.getElementById("sketchPadSize").textContent = "Sketch pad size: " + sliderValue + " * " + sliderValue;
     resetSketchPad();
   }
 
