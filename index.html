@@ -6,27 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css"/>
     <title>Etch-a-sketch</title>
+    <style>
+        body {
+            background: #cbeef5;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="title"><h1>Etch-A-Sketch</h1></div>
         <div class="content">
             <div class="sketchPad"></div>
-            <div class="buttons">
-                <button onclick="toggleDrawingItem('pen')">Pen</button>
-                <button onclick="toggleDrawingItem('eraser')">Eraser</button>
-                <button onclick="toggleDrawingItem('rainbow')">Rainbow</button>
-                <button onclick="addGridLines()">Toggle grid</button>
-                <button id = "reset">Reset Board</button>
+            <div class="User-Controls">
+                <div class="buttons">
+                    <button onclick="toggleDrawingItem('pen')">PEN</button>
+                    <button onclick="toggleDrawingItem('eraser')">ERASER</button>
+                    <button onclick="toggleDrawingItem('rainbow')">RAINBOW</button>
+                    <button onclick="addGridLines()">TOGGLE GRID</button>
+                    <button id = "reset">RESET BOARD</button>
+                </div>
+                <div id = "sketchPadSize">Sketch pad size: 16 * 16</div> 
+                <div class="slider">
+                    <input type="range" min="2" max="64" value="16" class="slider" id="myRange">
+                  </div>
+                <div class="colorPicker">
+                    Change pen color
+                    <input type="color" id="color">
+                </div> 
+                <div class="backgroundPicker">
+                    Change background color
+                    <input type="color" id="backGroundColor">
+                </div> 
             </div>
-            <div class="slider">
-                <input type="range" min="2" max="64" value="16" class="slider" id="myRange">
-              </div>
-            <div>
-                Pick a Color!
-                <input type="color" id="color">
-            </div> 
-            <div id = "sketchPadSize">Sketch pad size: 16 x 16</div> 
         </div>
     </div>
 </body>

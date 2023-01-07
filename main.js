@@ -5,6 +5,7 @@ let penColor = "black";
 let originalPenColor = "black";
 let sketchPadColor = "white";
 let userColorInput = document.querySelector("#color");
+let userBackgroundColorInput = document.querySelector("#backGroundColor");
 let hexValue = document.querySelector("#hex");
 let shouldGridExist = false;
 
@@ -14,6 +15,11 @@ document.body.onmouseup = () => (mouseDown = false)
 initializeSketchPad(sliderValue);
 
 userColorInput.addEventListener("input", () => {
+    penColor = userColorInput.value;
+    originalPenColor = userColorInput.value;
+})
+
+userBackgroundColorInput.addEventListener("input", () => {
     penColor = userColorInput.value;
     originalPenColor = userColorInput.value;
 })

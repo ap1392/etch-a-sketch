@@ -1,17 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy); 
+@import url(https://fonts.googleapis.com/css?family=Oswald:400|Open+Sans:700);
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: 'Satisfy', cursive;
+}
+
+.container {
+
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+/* .User-Controls {
+  display: flex;
+} */
+
+
+.sketchPad {
+  padding: 10px;
+}
+
+.content>*:first-child {
+  justify-content: center;
+}
+
+#sketchPadSize {
+  padding: 10px;
+  padding-left: 0px;
+}
+
+.buttons {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-bottom: 100px;
+}
+
+.buttons button {
+  border-radius: 10%;
+  font-family: "Oswald", Sans-serif;
+  background-color: white;
+  border: 0px;
+  
+}
+
+#sketchPadSize {
+  font-family: "Oswald", Sans-serif;
+}
+
+.buttons button:hover {
+  transform: scale(1.1) perspective(1px);
+  cursor: pointer;
+}
+
+.colorPicker {
+  padding-top: 100px;
+}
+
+.backgroundPicker {
+  padding-top: 100px;
+}
+
+
+
 .sketchPad {
     width: 500px;
     height: 500px;
     display: grid;
+    border: thin;
+    
 }
+
+
 
 .slidecontainer {
     width: 100%; /* Width of the outside container */
+
   }
   
   /* The slider itself */
   .slider {
     -webkit-appearance: none;
-    width: 500px;
+    width: 200px;
     height: 15px;
     border-radius: 5px;  
     background: #d3d3d3;
