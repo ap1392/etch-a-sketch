@@ -37,7 +37,7 @@
 .buttons {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
 }
 
 .buttons button {
@@ -58,14 +58,10 @@
 }
 
 .colorPicker {
-  padding-top: 100px;
+  padding-top: 150px;
   font-family: "Oswald", Sans-serif;
 }
 
-.backgroundPicker {
-  padding-top: 100px;
-  font-family: "Oswald", Sans-serif;
-}
 
 
 

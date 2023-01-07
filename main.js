@@ -17,11 +17,8 @@ initializeSketchPad(sliderValue);
 userColorInput.addEventListener("input", () => {
     penColor = userColorInput.value;
     originalPenColor = userColorInput.value;
-})
-
-userBackgroundColorInput.addEventListener("input", () => {
-    penColor = userColorInput.value;
-    originalPenColor = userColorInput.value;
+    console.log(userColorInput)
+    console.log(userBackgroundColorInput.value)
 })
 
 document.getElementById("reset").onclick = resetSketchPad;
