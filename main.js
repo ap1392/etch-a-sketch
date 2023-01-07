@@ -71,7 +71,7 @@ function addGridLines() {
 
 slider.onchange = function() {
     sliderValue = document.getElementById("myRange").value;
-    document.getElementById("sketchPadSize").textContent = "Sketch pad size: " + sliderValue + " * " + sliderValue;
+    document.getElementById("sketchPadSize").textContent = "Sketch pad size: " + sliderValue + " X " + sliderValue;
     resetSketchPad();
     removeAllDivs();
     initializeSketchPad(sliderValue);
